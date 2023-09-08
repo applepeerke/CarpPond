@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    {% if message %}
+    <p class="message">{{ message }}</p>
+    {% endif %}
+    <h1>Vis</h1>
+    <hr>
+    <form action="/fish" method="POST">
+        <table aria-label="Vis">
+            <tr>
+                <th>Titel</th>
+                <th>Waarde</th>
+            </tr>
+            <tr>
+                <td>Vissoort</td>
+                <td>{{ fish['species'] }}</td>
+            </tr>
+            <tr>
+                <td>Variëteit</td>
+                <td>{{ fish['variety'] }}</td>
+            </tr>
+            <tr>
+                <td>Opmerking</td>
+                <td>{{ fish['note'] }}</td>
+            </tr>
+        </table>
+        <input type="submit" name="button" value="Toevoegen" class="btn" />
+        <input type="submit" name="button" value="Back" class="btn" />
+    </form>
+</div>
+{% endblock %}

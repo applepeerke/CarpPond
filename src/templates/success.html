@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <form action="/back" method="POST">
+        <h1>Success</h1>
+        {% if message %}
+        <h2 class="message">{{ message | safe }}</h2>
+        {% endif %}
+        <input type="submit" value="Back" class="btn" />
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="title">{% block title %} Visser {% endblock %}</h1>
+<div class="content">
+    {% if message %}
+    <p class="message">{{ message | safe }}</p>
+    {% endif %}
+    <div class="fisherman">
+        <p><b>#{{ fisherman.id }}</b></p>
+        <!-- autoescape turned off! -->
+        {% autoescape false %}
+         <p class="name">{{ fisherman.firstname }} {{ fisherman.lastname }}</p>
+        {% endautoescape %}
+        <div class="note">
+            <h4>Note</h4>
+            <p>{{ fisherman.note }}</p>
+        </div>
+    </div>
+</div>
+<form action="/back" method="POST">
+    <input type="submit" name="button" value="Back" class="btn" />
+</form>
+{% endblock %}

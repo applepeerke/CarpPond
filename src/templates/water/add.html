@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    {% if message %}
+    <p class="message">{{ message }}</p>
+    {% endif %}
+    <form action="/add_water" method="POST">
+        <div class="form-group">
+            <h3>Naam</h3>
+            <input type="text" name="name" placeholder="Naam" value=" {{ water.name | safe }} "/>
+        </div>
+        <div class="form-group">
+            <h3>Type</h3>
+            <input type="text" name="type" placeholder="Type" value=" {{ water.type | safe }} "/>
+        </div>
+        <div class="form-group">
+            <h3>Opmerking - Met autoescape uit!</h3>
+            <!-- autoescape turned off! -->
+            {% autoescape false %}
+            <input type="text" name="note" value=" {{ water.note | safe }} " />
+            {% endautoescape %}
+        </div>
+        <input type="submit" name="button" value="Toevoegen" class="btn" />
+        <input type="submit" name="button" value="Back" class="btn" />
+    </form>
+</div>
+{% endblock %}

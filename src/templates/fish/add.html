@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    {% if message %}
+    <p class="message">{{ message }}</p>
+    {% endif %}
+    <form action="/add_fish" method="POST">
+        <div class="form-group">
+            <h3>Vissoort</h3>
+            <!-- autoescape turned off! -->
+            {% autoescape false %}
+            <input type="text" name="species" placeholder="Vissoort - Met autoescape uit!" value=" {{ fish.species | safe }} "/>
+            {% endautoescape %}
+        </div>
+        <div class="form-group">
+            <h3>Variëteit</h3>
+            <input type="text" name="variety" placeholder="Variëteit" value=" {{ fish.variety | safe }} "/>
+        </div>
+        <div class="form-group">
+            <h3>Lengte (cm)</h3>
+            <input type="text" name="length"  value=" {{ fish.length | safe }} "/>
+        </div>
+        <div class="form-group">
+            <h3>Gewicht (pond)</h3>
+            <input type="text" name="pounds" value=" {{ fish.pounds | safe }} "/>
+        </div>
+
+        <div class="form-group">
+            <h3>Opmerking</h3>
+            <!-- autoescape turned off! -->
+            {% autoescape false %}
+            <input type="text" name="note" placeholder="Opmerking - Met autoescape uit!" value=" {{ fish.note | safe }} " />
+            {% endautoescape %}
+        </div>
+        <input type="submit" name="button" value="Toevoegen" class="btn" />
+        <input type="submit" name="button" value="Back" class="btn" />
+    </form>
+</div>
+{% endblock %}

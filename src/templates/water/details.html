@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    {% if message %}
+    <p class="message">{{ message }}</p>
+    {% endif %}
+    <h1>Water details</h1>
+    <hr>
+    <form action="/back" method="POST">
+        <table aria-label="Viswater">
+            <tr>
+                <th>Titel</th>
+                <th>Waarde</th>
+            </tr>
+            <tr>
+                <td>Naam</td>
+                <td>{{ water['name'] }}</td>
+            </tr>
+            <tr>
+                <td>Opmerking</td>
+                <td>{{ water['note'] }}</td>
+            </tr>
+        </table>
+        <input type="submit" name="button" value="Back" class="btn" />
+    </form>
+</div>
+{% endblock %}
